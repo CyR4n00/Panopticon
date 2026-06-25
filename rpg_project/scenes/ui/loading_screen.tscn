@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxloading123"]
+
+[ext_resource type="Script" path="res://scripts/systems/loading_screen.gd" id="1_abcde"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_abcde")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand = true
