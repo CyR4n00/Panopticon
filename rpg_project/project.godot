@@ -16,5 +16,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 SceneTransitionManager="*res://scripts/systems/scene_transition_manager.gd"
-
 GameManager="*res://scripts/core/game_manager.gd"

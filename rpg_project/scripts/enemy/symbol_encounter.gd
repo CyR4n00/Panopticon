@@ -12,7 +12,8 @@ func _ready():
         unique_encounter_id = str(get_path())
 
     # Check if this specific enemy was already defeated
-    if GameManager.is_enemy_defeated(unique_encounter_id):
+    var gm = get_node_or_null("/root/GameManager")
+    if gm and gm.is_enemy_defeated(unique_encounter_id):
         queue_free()
         return
 
@@ -31,12 +32,14 @@ func _start_encounter(player):
     if player.has_method("lock_movement"):
         player.lock_movement()
 
-    GameManager.set("pending_enemy_group", enemy_group_id)
+    var gm = get_node_or_null("/root/GameManager")
+    if gm:
+        gm.set("pending_enemy_group", enemy_group_id)
+        # Register as defeated (usually you would do this after winning the battle, but for simplicity we do it here)
+        gm.register_enemy_defeated(unique_encounter_id)
 
-    # Register as defeated (usually you would do this after winning the battle, but for simplicity we do it here)
-    GameManager.register_enemy_defeated(unique_encounter_id)
-
-    if SceneTransitionManager:
-        SceneTransitionManager.transition_to_scene(battle_scene_path)
+    var stm = get_node_or_null("/root/SceneTransitionManager")
+    if stm:
+        stm.transition_to_scene(battle_scene_path)
 
     queue_free()
