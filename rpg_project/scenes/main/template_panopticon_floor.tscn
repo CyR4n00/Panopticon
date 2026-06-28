@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://df234asdf"]
+
+[ext_resource type="Script" path="res://scripts/tools/panopticon_generator.gd" id="1_tool"]
+
+[node name="FloorManager" type="Node3D"]
+script = ExtResource("1_tool")
+outer_radius = 25.0
+inner_radius = 15.0
+cell_count = 16

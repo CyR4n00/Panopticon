@@ -30,7 +30,7 @@ func _physics_process(delta):
         cam_right.y = 0
         cam_right = cam_right.normalized()
 
-        direction = (cam_right * input_dir.x + cam_forward * input_dir.y).normalized()
+        direction = (cam_right * input_dir.x + cam_forward * -input_dir.y).normalized()
 
     if direction:
         velocity.x = direction.x * SPEED
